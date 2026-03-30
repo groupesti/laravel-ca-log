@@ -1,0 +1,59 @@
+{
+    "name": "groupesti/laravel-ca-log",
+    "description": "Structured operational logging for Laravel CA — channels, formatters, context enrichment, and log management commands",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["laravel", "ca", "log", "logging", "pki", "certificate-authority", "structured-logging", "siem"],
+    "authors": [
+        {
+            "name": "Groupe STI",
+            "email": "dev@groupesti.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "groupesti/laravel-ca": "^0.1",
+        "illuminate/support": "^12.0",
+        "illuminate/console": "^12.0",
+        "illuminate/events": "^12.0",
+        "illuminate/log": "^12.0",
+        "illuminate/routing": "^12.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "larastan/larastan": "^3.0",
+        "orchestra/testbench": "^10.0",
+        "pestphp/pest": "^3.0",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "phpstan/phpstan": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CA\\Log\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CA\\Log\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest",
+        "test-coverage": "./vendor/bin/pest --coverage",
+        "format": "./vendor/bin/pint",
+        "analyse": "./vendor/bin/phpstan analyse"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CA\\Log\\LogServiceProvider"
+            ],
+            "aliases": {
+                "CaLog": "CA\\Log\\Facades\\CaLog"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
